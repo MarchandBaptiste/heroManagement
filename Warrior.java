@@ -8,7 +8,18 @@ public class Warrior extends Character {
 
     @Override
     public String attack(Character target) {
-        target.takeDamage(5);
-        return "Le joueur attaqué est : " + target + " et il prend 5 de dégats.";
+        int totalDamage = 5 + strength;
+        target.takeDamage(totalDamage);
+        return "Le joueur attaqué est : " + target + " et il prend " + totalDamage + " de dégats.";
+    }
+
+    /**
+     * Pour une attaque puissante
+     * 
+     * @return Message décrivant le nombre de dégats infligé en +
+     */
+    public String charge() {
+        strength += 10;
+        return "Prochaine attaque charger + 10 dégats à venir !";
     }
 }

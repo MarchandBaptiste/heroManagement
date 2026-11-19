@@ -32,4 +32,32 @@ public class GameManager {
         }
         return newCharacter;
     }
+
+    /**
+     * Lance un combat entre deux personnages.
+     * Les personnages s'attaquent à tour de rôle jusqu'à ce qu'un des deux n'ait
+     * plus de points de vie.
+     * 
+     * @param hero1 premier combattant
+     * @param hero2 second combattant
+     * @return Message décrivant le résultat du combat
+     */
+    public String startBattle(Character hero1, Character hero2) {
+        if (hero1 == null || hero2 == null) {
+            return "Le combat ne peut pas commencer il manque un personnage";
+        }
+        int tour = 1;
+        while (hero1.getHealth() > 0 && hero2.getHealth() > 0) {
+            Character attaquant = (tour % 2 == 1) ? hero1 : hero2;
+            Character cible = (tour % 2 == 1) ? hero2 : hero1;
+            System.out
+                    .println("--- Tour " + tour + " : " + attaquant.getName() + " attaque " + cible.getName());
+            System.out.println(attaquant.attack(cible));
+            tour++;
+        }
+        Character gagnant = hero1.getHealth() > 0 ? hero1 : hero2;
+        Character perdant = hero1.getHealth() > 0 ? hero2 : hero1;
+        return gagnant.getName() + " remporte le combat contre " + perdant.getName();
+    }
+
 }

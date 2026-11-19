@@ -2,8 +2,8 @@
 public class Archer extends Character {
     private int range;
 
-    public Archer(String name, int health, int range) {
-        super(name, health);
+    public Archer(String name, int range) {
+        super(name);
         this.range = range;
     }
 

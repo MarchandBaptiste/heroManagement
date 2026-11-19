@@ -3,9 +3,9 @@ public abstract class Character {
     protected int health;
     protected int Level;
 
-    public Character(String name, int health) {
+    public Character(String name) {
         this.name = name;
-        this.health = health;
+        this.health = 50;
         this.Level = 1;
     }
 
@@ -36,5 +36,8 @@ public abstract class Character {
 
     public String getName() {
         return name;
+    }
+    public int getHealth(){
+        return health;
     }
 }

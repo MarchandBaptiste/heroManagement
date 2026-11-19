@@ -3,8 +3,8 @@ import java.util.Random;
 public class Mage extends Character {
     private int mana;
 
-    public Mage(String name, int health, int mana) {
-        super(name, health);
+    public Mage(String name, int mana) {
+        super(name);
         this.mana = mana;
     }
 

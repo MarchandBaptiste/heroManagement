@@ -23,4 +23,12 @@ public class Archer extends Character {
         range += 200;
         return "Les flèches envoyer on une distance max de : " + range;
     }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
 }

@@ -47,7 +47,7 @@ public abstract class Character {
     }
 
     /**
-     * Fait monter le personnage d'un niveau et soigne un peu ses points de vie.
+     * Augment le niveau du personnage
      *
      * @return Message décrivant la montée de niveau
      */

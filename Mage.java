@@ -27,4 +27,12 @@ public class Mage extends Character {
         String chosenSpell = spells[random.nextInt(spells.length)];
         return "Le sort envoyé est un sort de : " + chosenSpell;
     }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
 }

@@ -15,4 +15,21 @@ public class GameManager {
         }
         return instance;
     }
+
+    public Character createCharacter(CharacterType type, String name, int strength, int mana, int range) {
+        Character newCharacter = null;
+
+        switch (type) {
+            case CharacterType.WARRIOR -> newCharacter = new Warrior(name, strength);
+            case CharacterType.MAGE -> newCharacter = new Mage(name, mana);
+            case CharacterType.ARCHER -> newCharacter = new Archer(name, range);
+            default -> {
+            }
+        }
+
+        if (newCharacter != null) {
+            this.characters.add(newCharacter);
+        }
+        return newCharacter;
+    }
 }

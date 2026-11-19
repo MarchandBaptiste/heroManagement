@@ -51,20 +51,27 @@ public class GameManager {
      */
     public String startBattle(Character hero1, Character hero2) {
         if (hero1 == null || hero2 == null) {
-            return "Le combat ne peut pas commencer il manque un personnage";
+            return "Le combat ne peut pas commencer : un personnage est manquant.";
+        }
+        if (hero1.getHealth() <= 0) {
+            return hero1.getName() + " est déjà mort et ne peut pas combattre.";
+        }
+        if (hero2.getHealth() <= 0) {
+            return hero2.getName() + " est déjà mort et ne peut pas combattre.";
         }
         int tour = 1;
         while (hero1.getHealth() > 0 && hero2.getHealth() > 0) {
             Character attaquant = (tour % 2 == 1) ? hero1 : hero2;
             Character cible = (tour % 2 == 1) ? hero2 : hero1;
-            System.out
-                    .println("--- Tour " + tour + " : " + attaquant.getName() + " attaque " + cible.getName());
+            System.out.println("--- Tour " + tour + " : " + attaquant.getName() + " attaque " + cible.getName());
             System.out.println(attaquant.attack(cible));
+            System.out.println(cible.getName() + " a maintenant " + cible.getHealth() + " PV.");
+            System.out.println();
             tour++;
         }
-        Character gagnant = hero1.getHealth() > 0 ? hero1 : hero2;
-        Character perdant = hero1.getHealth() > 0 ? hero2 : hero1;
-        return gagnant.getName() + " remporte le combat contre " + perdant.getName();
+        String gagnant = hero1.getHealth() > 0 ? hero1.getName() : hero2.getName();
+        String perdant = hero1.getHealth() > 0 ? hero2.getName() : hero1.getName();
+        return "Combat terminé " + gagnant + " remporte le combat contre " + perdant + ".";
     }
 
 }

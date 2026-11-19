@@ -69,9 +69,10 @@ public class GameManager {
             System.out.println();
             tour++;
         }
-        String gagnant = hero1.getHealth() > 0 ? hero1.getName() : hero2.getName();
-        String perdant = hero1.getHealth() > 0 ? hero2.getName() : hero1.getName();
-        return "Combat terminé " + gagnant + " remporte le combat contre " + perdant + ".";
+        Character gagnant = hero1.getHealth() > 0 ? hero1 : hero2;
+        Character perdant = hero1.getHealth() > 0 ? hero2 : hero1;
+        String messageNiveau = gagnant.levelUp();
+        return "Combat terminé " + gagnant.getName() + " remporte le combat contre " + perdant.getName() + ". "
+                + messageNiveau;
     }
-
 }

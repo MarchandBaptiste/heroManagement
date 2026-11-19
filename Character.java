@@ -37,7 +37,22 @@ public abstract class Character {
     public String getName() {
         return name;
     }
-    public int getHealth(){
+
+    public int getHealth() {
         return health;
+    }
+
+    public int getLevel() {
+        return Level;
+    }
+
+    /**
+     * Augment le niveau du personnage
+     *
+     * @return Message décrivant la montée de niveau
+     */
+    public String levelUp() {
+        Level++;
+        return name + " monte au niveau " + Level;
     }
 }

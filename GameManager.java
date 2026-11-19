@@ -16,6 +16,13 @@ public class GameManager {
         return instance;
     }
 
+    /**
+     * Crée un personnage et l'enregistre dans la liste
+     *
+     * @param type le type du personnage (WARRIOR, MAGE, ARCHER)
+     * @param name le nom du personnage
+     * @return le personnage créé
+     */
     public Character createCharacter(CharacterType type, String name, int strength, int mana, int range) {
         Character newCharacter = null;
 
